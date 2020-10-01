@@ -10,7 +10,9 @@ public class FoodSpawn : MonoBehaviour
     public int maxX;
     public int maxY;
 
-    public RigidBody2D foodClone;
+    public Vector3 myFoodPos;
+
+    public Rigidbody2D foodClone;
 
     void Start()
     {
@@ -21,7 +23,9 @@ public class FoodSpawn : MonoBehaviour
 
     public void spawnFood()
     {
-        var foodClone = Instantiate(foodSpawnPrefab, transform.position, transform.rotation);
+        myFoodPos = new Vector3(Random.Range(minX,maxX),Random.Range(minY,maxY),0); 
+
+        var foodClone = Instantiate(foodSpawnPrefab, myFoodPos, transform.rotation);
 
     }
 
