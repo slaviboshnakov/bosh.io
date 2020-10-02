@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class FoodSpawn : MonoBehaviour
 {
-    public GameObject foodSpawnPrefab;
-    public int minX;
-    public int minY;
-    public int maxX;
-    public int maxY;
+    //public GameObject foodSpawnPrefab;
+    public GameObject[] foodPrefabArray;
+
+    public float minX;
+    public float minY;
+    public float maxX;
+    public float maxY;
 
     public Vector3 myFoodPos;
 
@@ -23,9 +25,11 @@ public class FoodSpawn : MonoBehaviour
 
     public void spawnFood()
     {
+        var randFoodPrefab = Random.Range(0, foodPrefabArray.Length);
         myFoodPos = new Vector3(Random.Range(minX,maxX),Random.Range(minY,maxY),0); 
 
-        var foodClone = Instantiate(foodSpawnPrefab, myFoodPos, transform.rotation);
+
+        var foodClone = Instantiate(foodPrefabArray[randFoodPrefab], myFoodPos, transform.rotation);
 
     }
 

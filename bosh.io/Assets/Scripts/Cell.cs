@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Networking;
 
 
-public class Cell : NetworkBehaviour
+
+public class Cell : MonoBehaviour
 {
 
     public Camera ourCamera;
@@ -37,10 +37,7 @@ public class Cell : NetworkBehaviour
 
     void Update()
     {
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+        
         mouselocation = Input.mousePosition;
         mouselocation.z = 10;
 

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public int score;
 
     public DisplayManager RefDisplayerManager;
+    private Vector3 scaleChange = new Vector3(0.01f, 0.01f, 0.01f);
 
     public float MassProperty
     {
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Food")
         {
+            gameObject.transform.localScale += scaleChange;
             score += 1;
             Destroy(other.gameObject);
             RefDisplayerManager.CurrentScoreText.text = score.ToString();
